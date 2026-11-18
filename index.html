@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amir Girgis Mofid — Software Developer, AI Automation &amp; Founder</title>
+    <meta
+      name="description"
+      content="Portfolio of Amir Girgis Mofid — Software Development Student (C# / ASP.NET Core), Digital Marketing &amp; AI Automation specialist, and Founder of Market Sphere X in Giza, Egypt."
+    />
+    <meta name="author" content="Amir Girgis Mofid" />
+    <meta name="theme-color" content="#FFF8F2" id="meta-theme-color" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Amir Girgis Mofid — Software Developer, AI Automation &amp; Founder"
+    />
+    <meta
+      property="og:description"
+      content="Software Development Student (C# / ASP.NET Core), Digital Marketing &amp; AI Automation, and Founder of Market Sphere X. 1st Place Winner at INNOVET III 2026."
+    />
+    <meta property="og:site_name" content="Amir Girgis Mofid" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Amir Girgis Mofid — Software Developer, AI Automation &amp; Founder"
+    />
+    <meta
+      name="twitter:description"
+      content="Software Development Student (C# / ASP.NET Core), Digital Marketing &amp; AI Automation, and Founder of Market Sphere X."
+    />
+
+    <!-- Favicon (inline SVG Sunset Pop monogram) -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233A5BFF'/%3E%3Cstop offset='52%25' stop-color='%23FF2E93'/%3E%3Cstop offset='100%25' stop-color='%23FF8A00'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='%2314112B'/%3E%3Crect x='4' y='4' width='56' height='56' rx='14' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='26' fill='%23FFF8F2'%3EAG%3C/text%3E%3C/svg%3E"
+    />
+
+    <!-- Google Fonts (subsetted weights with display=swap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org JSON-LD Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Amir Girgis Mofid",
+        "jobTitle": "Software Development Student & Founder of Market Sphere X Agency",
+        "description": "Software development student (C# / ASP.NET Core), digital marketing & AI automation practitioner, and Founder & Team Leader of Market Sphere X Agency.",
+        "email": "mailto:amirgargas28@gmail.com",
+        "telephone": "+201223646440",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Giza",
+          "addressCountry": "Egypt"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "EVA International School of Applied Technology"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/amir-girgis-9392aa340",
+          "https://github.com/amir-girgis"
+        ],
+        "knowsAbout": [
+          "C#",
+          "ASP.NET Core",
+          "Digital Marketing",
+          "AI Automation",
+          "Web Development",
+          "Brand Identity"
+        ]
+      }
+    </script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./src/styles.css" />
+
+    <!-- Prevent theme flash before paint -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("amir-portfolio-theme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = saved || (prefersDark ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- GSAP & ScrollTrigger via CDN (deferred) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"
+    ></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Fast skippable name-reveal loader (< 1.2s) -->
+    <div
+      id="page-loader"
+      class="loader"
+      role="dialog"
+      aria-label="Portfolio intro loader"
+    >
+      <div class="loader-inner">
+        <div class="loader-name" aria-hidden="true">
+          <span class="loader-word" id="loader-first">AMIR</span>
+          <span class="loader-word loader-word--gradient" id="loader-last"
+            >GIRGIS MOFID</span
+          >
+        </div>
+        <div class="loader-bar-track" aria-hidden="true">
+          <div class="loader-bar-fill"></div>
+        </div>
+        <button
+          type="button"
+          id="loader-skip"
+          class="loader-skip"
+          aria-label="Skip intro animation"
+        >
+          Skip intro
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop-only custom blend-mode cursor -->
+    <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
+
+    <!-- Floating Pill Navigation (top on desktop, bottom on mobile) -->
+    <header class="site-header">
+      <nav class="floating-nav" aria-label="Primary navigation">
+        <a href="#hero" class="nav-brand" id="nav-brand">AMIR.</a>
+        <div class="nav-links" id="nav-links"></div>
+        <div class="nav-actions">
+          <a href="#contact" class="nav-cta" id="nav-cta">CONTACT ME</a>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+          >
+            <span class="theme-icon theme-icon--sun" aria-hidden="true">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon--moon" aria-hidden="true">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+            </span>
+            <span class="theme-label" id="theme-label">Dark</span>
+          </button>
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="mobile-menu-btn"
+            aria-label="Open section menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+          >
+            <span>Menu</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            >
+              <path d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div
+      id="mobile-drawer"
+      class="mobile-drawer"
+      hidden
+      aria-label="Mobile section navigation"
+    >
+      <div class="mobile-drawer-panel">
+        <div class="mobile-drawer-head">
+          <span class="mono-label">Navigate</span>
+          <button
+            type="button"
+            id="mobile-drawer-close"
+            class="mobile-drawer-close"
+            aria-label="Close navigation menu"
+          >
+            Close
+          </button>
+        </div>
+        <div class="mobile-drawer-links" id="mobile-drawer-links"></div>
+      </div>
+    </div>
+
+    <main id="main-content">
+      <!-- 1. HERO -->
+      <section id="hero" class="hero-section" aria-label="Introduction">
+        <div class="hero-mesh" aria-hidden="true">
+          <span class="mesh-blob mesh-blob--blue"></span>
+          <span class="mesh-blob mesh-blob--magenta"></span>
+          <span class="mesh-blob mesh-blob--orange"></span>
+        </div>
+        <div class="container hero-grid" id="hero-container"></div>
+      </section>
+
+      <!-- MARQUEE BAND 1 -->
+      <div class="marquee-band marquee-band--gradient" aria-hidden="true">
+        <div class="marquee-track" id="marquee-top"></div>
+      </div>
+
+      <!-- 2. ABOUT -->
+      <section id="about" class="section" aria-labelledby="about-heading">
+        <div class="container" id="about-container"></div>
+      </section>
+
+      <!-- MARQUEE BAND 2 -->
+      <div
+        class="marquee-band marquee-band--ink marquee-band--reverse"
+        aria-hidden="true"
+      >
+        <div class="marquee-track" id="marquee-bottom"></div>
+      </div>
+
+      <!-- 2. ACHIEVEMENTS (INNOVET spotlight, TechSkills) -->
+      <section
+        id="achievements"
+        class="section"
+        aria-labelledby="achievements-heading"
+      >
+        <div class="container" id="achievements-container"></div>
+      </section>
+
+      <!-- 3. PROJECTS (Market Sphere X, AI Lead Qualification, SAKAN, Upcoming) -->
+      <section id="projects" class="section" aria-labelledby="projects-heading">
+        <div class="container" id="projects-container"></div>
+      </section>
+
+      <!-- 4. EXPERIENCE & LEADERSHIP -->
+      <section
+        id="experience"
+        class="section"
+        aria-labelledby="experience-heading"
+      >
+        <div class="container" id="experience-container"></div>
+      </section>
+
+      <!-- 5. VOLUNTEERING (GEF 2026) -->
+      <section
+        id="volunteering"
+        class="section"
+        aria-labelledby="volunteering-heading"
+      >
+        <div class="container" id="volunteering-container"></div>
+      </section>
+
+      <!-- 6. SKILLS -->
+      <section id="skills" class="section" aria-labelledby="skills-heading">
+        <div class="container" id="skills-container"></div>
+      </section>
+
+      <!-- 7. EDUCATION -->
+      <section
+        id="education"
+        class="section"
+        aria-labelledby="education-heading"
+      >
+        <div class="container" id="education-container"></div>
+      </section>
+
+      <!-- 8. CONTACT -->
+      <section
+        id="contact"
+        class="section contact-section"
+        aria-labelledby="contact-heading"
+      >
+        <div class="container" id="contact-container"></div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="footer-container"></footer>
+
+    <!-- Expandable Case-Study / Detail Modal -->
+    <div
+      id="detail-modal"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detail-modal-title"
+      hidden
+    >
+      <div class="modal-panel">
+        <div class="modal-header">
+          <span class="mono-label" id="detail-modal-eyebrow">Details</span>
+          <button
+            type="button"
+            id="detail-modal-close"
+            class="modal-close-btn"
+            aria-label="Close details dialog"
+          >
+            Close ✕
+          </button>
+        </div>
+        <div class="modal-body" id="detail-modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Fullscreen Photo Lightbox (Keyboard + Touch Swipe) -->
+    <div
+      id="lightbox"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo gallery viewer"
+      hidden
+    >
+      <div class="lightbox-topbar">
+        <span class="mono-label tabular-nums" id="lightbox-counter">1 / 1</span>
+        <button
+          type="button"
+          id="lightbox-close"
+          class="lightbox-close"
+          aria-label="Close photo viewer"
+        >
+          Close ✕
+        </button>
+      </div>
+      <div class="lightbox-stage" id="lightbox-stage">
+        <button
+          type="button"
+          id="lightbox-prev"
+          class="lightbox-nav lightbox-nav--prev"
+          aria-label="Previous photo"
+        >
+          ←
+        </button>
+        <figure class="lightbox-figure">
+          <img id="lightbox-img" class="lightbox-img" alt="" />
+          <figcaption id="lightbox-caption" class="lightbox-caption"></figcaption>
+        </figure>
+        <button
+          type="button"
+          id="lightbox-next"
+          class="lightbox-nav lightbox-nav--next"
+          aria-label="Next photo"
+        >
+          →
+        </button>
+      </div>
+    </div>
+
+    <!-- Toast notification for clipboard actions -->
+    <div
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
