@@ -2,28 +2,18 @@
  * ============================================================================
  * PORTFOLIO CONTENT DATA — SINGLE SOURCE OF TRUTH
  * ============================================================================
- * Edit any text, image path, alt text, caption, or placeholder below without
- * touching the layout or styles.
- *
- * CLEARLY MARKED PLACEHOLDERS TO REVIEW / FILL IN:
- *   1. TEAM_SIZE             -> "[TEAM_SIZE]"
- *   2. TECHSKILLS_DATES      -> "[TECHSKILLS_DATES]"
- *   3. MARKET_SPHERE_WORK    -> "[ADD DETAIL: selected client work, only if provided]"
- *   4. INNOVET_EVENT_DAY     -> "[ADD DETAIL: my specific part in the competition and the event day]"
- *   5. TECHSKILLS_CHALLENGE  -> "[ADD DETAIL: what the challenge involved and my contribution]"
- *   6. GEF_COUNTS            -> "[ADD DETAIL: number of investors/projects only if provided]"
+ * Edit any text, image path, alt text, or caption below without touching
+ * the layout or styles. Optional fields left as "" are hidden automatically.
  * ============================================================================
  */
 
 export const EDITABLE_PLACEHOLDERS = {
-  TEAM_SIZE: "[TEAM_SIZE]",
-  TECHSKILLS_DATES: "[TECHSKILLS_DATES]",
-  MARKET_SPHERE_WORK: "[ADD DETAIL: selected client work, only if provided]",
-  INNOVET_EVENT_DAY:
-    "[ADD DETAIL: my specific part in the competition and the event day]",
-  TECHSKILLS_CHALLENGE:
-    "[ADD DETAIL: what the challenge involved and my contribution]",
-  GEF_COUNTS: "[ADD DETAIL: number of investors/projects only if provided]"
+  TEAM_SIZE: "8",
+  TECHSKILLS_DATES: "",
+  MARKET_SPHERE_WORK: "",
+  INNOVET_EVENT_DAY: "",
+  TECHSKILLS_CHALLENGE: "",
+  GEF_COUNTS: ""
 };
 
 export const PORTFOLIO_CONTENT = {
@@ -353,9 +343,9 @@ export const PORTFOLIO_CONTENT = {
         date: "November 2026",
         location: "INNOVET III 2026",
         description:
-          "An integrated digital platform CONCEPT (no real users or real software product built) that helps students—especially those living away from their families—manage their academic responsibilities, accommodation, personal finances and everyday activities through one centralized application.",
+          "An integrated digital platform concept that helps students—especially those living away from their families—manage their academic responsibilities, accommodation, personal finances and everyday activities through one centralized application.",
         development:
-          "Developed strictly on the concept, positioning, and marketing side (NOT software development): shaped the value proposition, analyzed target student needs and challenges, designed the brand identity (#0D2B5B, #3ECF8E, #F7F9F6, #64748B), planned social media campaigns, and produced Instagram feed posts, stories, and reels covers alongside the final competition presentation.",
+          "Concept project focused on value proposition, target student audience analysis, digital marketing strategy, brand identity (#0D2B5B, #3ECF8E, #F7F9F6, #64748B), Instagram feed, stories and reels campaign content, digital presence and final competition presentation.",
         outcome:
           "Won 1st Place in the Digital Marketing Competition at INNOVET III – TVET ReAImagined Innovation Summit (November 9, 2026), recognized for a student-focused digital product concept, branding, marketing strategy, audience targeting, and creative campaign.",
         coreFeatures: [
@@ -366,7 +356,7 @@ export const PORTFOLIO_CONTENT = {
           "Smart assistance: a proposed AI-powered assistant to support planning and prioritizing"
         ],
         myRole:
-          "Marketing and concept side (NOT software development): contributed to the concept and value proposition; identified the target audience and analyzed its needs and challenges; developed the digital marketing strategy; took part in brand identity and visual branding; planned social media campaigns and created content for Instagram posts, stories and reels; worked on the digital presence and final competition presentation; collaborated with the team.",
+          "Concept project. My role covered the concept, audience analysis, marketing strategy, branding and campaign content.",
         team: ["Amir Girgis", "Keroles Ayman", "Ahmed Adel", "Mina Sameh"],
         outcomes: "1st Place in the Digital Marketing Competition at INNOVET III",
         brandColors: ["#0D2B5B", "#3ECF8E", "#F7F9F6", "#64748B"],

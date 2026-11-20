@@ -498,7 +498,11 @@ function renderAchievements() {
       <article class="glass-card award-secondary tilt-card" data-reveal>
         <div class="award-secondary-head">
           <span class="mono-label">${escapeHtml(secondary.badge)}</span>
-          <span class="mono-label">${escapeHtml(secondary.date)}</span>
+          ${
+            secondary.date
+              ? `<span class="mono-label">${escapeHtml(secondary.date)}</span>`
+              : ""
+          }
         </div>
         <h3 class="award-secondary-title">${escapeHtml(secondary.title)}</h3>
         <div class="meta-line">
@@ -609,7 +613,8 @@ function renderProjects() {
         ? renderPhotoGallery(project.photos, project.id, "dark")
         : "";
 
-      const expandBtn = `
+      const expandBtn = !project.isPlaceholder
+        ? `
           <div class="card-actions-row">
             <button
               type="button"
@@ -619,7 +624,8 @@ function renderProjects() {
               View Case Study
             </button>
           </div>
-        `;
+        `
+        : "";
 
       return `
         <article
@@ -1010,10 +1016,13 @@ function buildModalContent(modalId) {
           <p>${escapeHtml(s.description)}</p>
           <p><strong>Team:</strong> ${escapeHtml(s.team.join(", "))}</p>
         </div>
-        <div class="modal-section-block">
-          <span class="mono-label">My Specific Part &amp; Event Day</span>
-          <p>${escapeHtml(s.myRole)}</p>
-        </div>
+        ${
+          s.myRole
+            ? `<div class="modal-section-block"><span class="mono-label">My Specific Part &amp; Event Day</span><p>${escapeHtml(
+                s.myRole
+              )}</p></div>`
+            : ""
+        }
       `
     };
   }
@@ -1021,7 +1030,7 @@ function buildModalContent(modalId) {
   if (modalId === "techskills") {
     const sec = achievements.secondary;
     return {
-      eyebrow: `${sec.badge} · ${sec.date}`,
+      eyebrow: sec.date ? `${sec.badge} · ${sec.date}` : sec.badge,
       html: `
         <h3 class="modal-title" id="detail-modal-title">${escapeHtml(
           sec.title
@@ -1033,10 +1042,13 @@ function buildModalContent(modalId) {
           <p>${escapeHtml(sec.description)}</p>
           <p>${escapeHtml(sec.outcomes)}</p>
         </div>
-        <div class="modal-section-block">
-          <span class="mono-label">Challenge &amp; Contribution</span>
-          <p>${escapeHtml(sec.myRole)}</p>
-        </div>
+        ${
+          sec.myRole
+            ? `<div class="modal-section-block"><span class="mono-label">Challenge &amp; Contribution</span><p>${escapeHtml(
+                sec.myRole
+              )}</p></div>`
+            : ""
+        }
       `
     };
   }
@@ -1057,10 +1069,13 @@ function buildModalContent(modalId) {
               .join("")}
           </ul>
         </div>
-        <div class="modal-section-block">
-          <span class="mono-label">Event Counts</span>
-          <p>${escapeHtml(volunteering.countsPlaceholder)}</p>
-        </div>
+        ${
+          volunteering.countsPlaceholder
+            ? `<div class="modal-section-block"><span class="mono-label">Event Counts</span><p>${escapeHtml(
+                volunteering.countsPlaceholder
+              )}</p></div>`
+            : ""
+        }
       `
     };
   }
@@ -1744,14 +1759,25 @@ function initMotion() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: counterEl,
-          start: "top 88%",
+          start: "top 90%",
           once: true
         },
         onUpdate: () => {
-          counterEl.textContent = `${Math.round(state.val)}${suffix}`;
+          counterEl.textContent = `${Math.floor(state.val)}${suffix}`;
+        },
+        onComplete: () => {
+          counterEl.textContent = `${target}${suffix}`;
         }
       });
     });
+
+    window.addEventListener(
+      "load",
+      () => {
+        scrollTriggerLib.refresh();
+      },
+      { once: true }
+    );
   }
 }
 

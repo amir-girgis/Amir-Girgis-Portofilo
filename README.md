@@ -11,6 +11,7 @@ A vibrant, mobile-first personal portfolio website built with plain HTML, CSS, a
 ├── package.json                      # Local dev & static build scripts (Vite)
 ├── public/
 │   ├── Amir_Girgis_CV.pdf            # CV PDF linked by DOWNLOAD CV (/Amir_Girgis_CV.pdf)
+│   ├── og-image.png                  # 1200x630 Open Graph / Twitter share image
 │   └── assets/
 │       ├── amir.jpg                  # Main portrait (Hero & fallback)
 │       ├── me/                       # Portrait photo for About
@@ -19,20 +20,20 @@ A vibrant, mobile-first personal portfolio website built with plain HTML, CSS, a
 │       ├── sakan/                    # SAKAN concept branding & social campaign visuals
 │       └── gef-2026/                 # Global Entrepreneurship Festival 2026 & Volunteer Certificate
 └── src/
-    ├── content.js                    # Single source of truth for ALL text, media & placeholders
+    ├── content.js                    # Single source of truth for ALL text & media
     ├── styles.css                    # "Sunset Pop" design system (light default + dark toggle)
     └── main.js                       # Renderer, expandable modals, swipe/keyboard lightbox, Cairo clock, GSAP
 ```
 
-## Editable Placeholders in `src/content.js`
+## Optional Fields in `src/content.js`
 
-Update `EDITABLE_PLACEHOLDERS` at the top of `src/content.js`:
-- `TEAM_SIZE` (`[TEAM_SIZE]`)
-- `TECHSKILLS_DATES` (`[TECHSKILLS_DATES]`)
-- `MARKET_SPHERE_WORK` (`[ADD DETAIL: selected client work, only if provided]`)
-- `INNOVET_EVENT_DAY` (`[ADD DETAIL: my specific part in the competition and the event day]`)
-- `TECHSKILLS_CHALLENGE` (`[ADD DETAIL: what the challenge involved and my contribution]`)
-- `GEF_COUNTS` (`[ADD DETAIL: number of investors/projects only if provided]`)
+Configure `EDITABLE_PLACEHOLDERS` at the top of `src/content.js` (empty strings `""` are hidden automatically in the UI):
+- `TEAM_SIZE` (currently `"8"`)
+- `TECHSKILLS_DATES` (optional event dates)
+- `MARKET_SPHERE_WORK` (optional selected client work details)
+- `INNOVET_EVENT_DAY` (optional event-day notes)
+- `TECHSKILLS_CHALLENGE` (optional challenge details)
+- `GEF_COUNTS` (optional investor/project counts)
 
 ## Local Run
 

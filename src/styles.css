@@ -1194,6 +1194,8 @@ html[data-theme="dark"] .marquee-band--ink {
 .kw-underline {
   position: relative;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   font-weight: 800;
 }
 
@@ -1256,6 +1258,11 @@ html[data-theme="dark"] .marquee-band--ink {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
+}
+
+.bento-grid > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media (min-width: 680px) {
@@ -1404,6 +1411,11 @@ html[data-theme="dark"] .bento-tile--cairo {
   padding-left: 30px;
 }
 
+.timeline > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 @media (min-width: 768px) {
   .timeline {
     padding-left: 44px;
@@ -1513,6 +1525,11 @@ html[data-theme="dark"] .bento-tile--cairo {
   gap: 24px;
 }
 
+.projects-stack > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 @media (min-width: 1024px) {
   .projects-stack {
     gap: 36px;
@@ -1527,8 +1544,11 @@ html[data-theme="dark"] .bento-tile--cairo {
 .project-card {
   position: relative;
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   border-radius: var(--radius-card);
-  padding: 28px;
+  padding: 24px 18px;
   color: #fff8f2;
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(255, 248, 242, 0.16);
@@ -1647,8 +1667,14 @@ html[data-theme="dark"] .bento-tile--cairo {
 .project-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
   align-items: start;
+  min-width: 0;
+}
+
+.project-layout > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media (min-width: 820px) {
@@ -1714,11 +1740,14 @@ html[data-theme="dark"] .bento-tile--cairo {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .tag-chip {
   display: inline-flex;
   align-items: center;
+  max-width: 100%;
   padding: 6px 12px;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(255, 248, 242, 0.24);
@@ -1726,9 +1755,11 @@ html[data-theme="dark"] .bento-tile--cairo {
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 500;
+  line-height: 1.35;
   letter-spacing: 0.04em;
   color: #fff8f2;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* ==========================================================================
@@ -1737,6 +1768,11 @@ html[data-theme="dark"] .bento-tile--cairo {
 .awards-stack {
   display: grid;
   gap: 24px;
+}
+
+.awards-stack > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .innovet-spotlight {
@@ -1963,6 +1999,11 @@ html[data-theme="dark"] .bento-tile--cairo {
   gap: 18px;
 }
 
+.skills-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 @media (min-width: 720px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2092,6 +2133,11 @@ html[data-theme="dark"] .bento-tile--cairo {
   align-items: start;
 }
 
+.contact-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 @media (min-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr 1.05fr;
@@ -2103,14 +2149,17 @@ html[data-theme="dark"] .bento-tile--cairo {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .contact-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  max-width: 100%;
   min-height: 52px;
-  padding: 12px 22px;
+  padding: 12px 20px;
   border-radius: var(--radius-pill);
   background: var(--surface-strong);
   border: 1px solid var(--border);
@@ -2119,6 +2168,8 @@ html[data-theme="dark"] .bento-tile--cairo {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+  text-align: left;
   transition:
     transform 0.2s var(--ease-out),
     border-color 0.2s ease;
@@ -2319,9 +2370,12 @@ html[data-theme="dark"] .bento-tile--cairo {
 }
 
 .sakan-swatches {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
+  min-width: 0;
   margin-bottom: 14px;
 }
 
@@ -2329,6 +2383,7 @@ html[data-theme="dark"] .bento-tile--cairo {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  max-width: 100%;
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   background: rgba(247, 249, 246, 0.1);
@@ -2336,6 +2391,7 @@ html[data-theme="dark"] .bento-tile--cairo {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: #f7f9f6;
+  overflow-wrap: anywhere;
 }
 
 .sakan-swatch-dot {
@@ -2348,7 +2404,10 @@ html[data-theme="dark"] .bento-tile--cairo {
 /* Market Sphere X Role & Services */
 .role-highlight {
   margin: 0 0 18px;
-  padding: 16px 20px;
+  padding: 16px 18px;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
   border-radius: 18px;
   background: rgba(255, 248, 242, 0.08);
   border: 1px solid rgba(255, 248, 242, 0.18);
@@ -2370,6 +2429,7 @@ html[data-theme="dark"] .bento-tile--cairo {
   grid-template-columns: 1fr;
   gap: 10px;
   margin: 0 0 18px;
+  min-width: 0;
 }
 
 @media (min-width: 600px) {
@@ -2380,6 +2440,9 @@ html[data-theme="dark"] .bento-tile--cairo {
 
 .service-pill {
   padding: 12px 14px;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
   border-radius: 14px;
   background: rgba(255, 248, 242, 0.07);
   border: 1px solid rgba(255, 248, 242, 0.14);
@@ -2425,6 +2488,8 @@ html[data-theme="dark"] .bento-tile--cairo {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
+  min-width: 0;
   margin: 18px 0 20px;
   padding: 16px;
   border-radius: 18px;
@@ -2437,6 +2502,7 @@ html[data-theme="dark"] .bento-tile--cairo {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
   padding: 8px 13px;
   border-radius: var(--radius-pill);
   background: rgba(20, 17, 43, 0.82);
@@ -2445,6 +2511,7 @@ html[data-theme="dark"] .bento-tile--cairo {
   font-size: 0.74rem;
   font-weight: 700;
   color: #fff8f2;
+  overflow-wrap: anywhere;
   animation: flowPulse 3.6s ease-in-out infinite;
   animation-delay: calc(var(--step-index, 0) * 0.45s);
 }
