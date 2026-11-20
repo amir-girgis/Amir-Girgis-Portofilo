@@ -339,8 +339,8 @@ button {
 @media (min-width: 960px) {
   .floating-nav {
     width: auto;
-    max-width: min(1060px, 94vw);
-    gap: 28px;
+    max-width: min(1140px, 95vw);
+    gap: 20px;
     padding: 8px 10px 8px 22px;
   }
 }
@@ -362,6 +362,12 @@ button {
   .nav-links {
     display: flex;
     align-items: center;
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1140px) {
+  .nav-links {
     gap: 20px;
   }
 }
@@ -2900,7 +2906,587 @@ html[data-theme="dark"] .bento-tile--cairo {
     transform: none !important;
   }
 
+  .ask-fab-dot {
+    animation: none !important;
+  }
+
   * {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================================
+   ACCESSIBILITY UTILITY
+   ========================================================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   08 — JOB FIT CHECKER (Local Client-Side Analysis)
+   ========================================================================== */
+.job-fit-card {
+  padding: 24px 18px;
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (min-width: 720px) {
+  .job-fit-card {
+    padding: 34px;
+  }
+}
+
+.job-fit-subtitle {
+  margin: 0;
+  color: var(--ink-muted);
+  max-width: 68ch;
+  font-size: 0.98rem;
+}
+
+.job-fit-samples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.job-fit-form {
+  display: grid;
+  gap: 14px;
+}
+
+.job-fit-textarea {
+  width: 100%;
+  min-height: 132px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  resize: vertical;
+  transition: border-color 0.18s ease;
+}
+
+.job-fit-textarea:focus {
+  outline: none;
+  border-color: var(--magenta);
+}
+
+.job-fit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.job-fit-results {
+  margin-top: 6px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.job-fit-results[hidden] {
+  display: none;
+}
+
+.job-fit-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+
+.job-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-cta);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.job-fit-summary-text {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.94rem;
+}
+
+.job-fit-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.job-fit-columns > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .job-fit-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.job-fit-col,
+.job-fit-exp-block {
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.job-fit-col-title {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.job-chip--match {
+  border-color: rgba(62, 207, 142, 0.55);
+  background: rgba(62, 207, 142, 0.14);
+}
+
+.job-chip--gap {
+  border-color: rgba(255, 138, 0, 0.48);
+  background: rgba(255, 138, 0, 0.12);
+}
+
+.job-fit-empty {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.job-fit-exp-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 0.94rem;
+}
+
+.job-fit-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   SMART CONTACT FORM CLASSIFIER BANNER
+   ========================================================================== */
+.smart-contact-insight {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.smart-contact-insight[hidden] {
+  display: none;
+}
+
+.smart-insight-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.smart-insight-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--yellow);
+  color: #14112b;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.smart-insight-note {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+}
+
+.smart-insight-route {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.smart-route-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.smart-route-pill {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  transition: border-color 0.18s ease;
+}
+
+.smart-route-pill:hover {
+  border-color: var(--magenta);
+}
+
+/* ==========================================================================
+   FLOATING "ASK AMIR" ASSISTANT (CLEAR OF NAV ON MOBILE & DESKTOP)
+   ========================================================================== */
+.ask-amir-root {
+  position: fixed;
+  right: 12px;
+  bottom: 76px; /* Strictly above mobile bottom pill nav (bottom: 12px + height: 52px) */
+  z-index: 920;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+
+@media (min-width: 960px) {
+  .ask-amir-root {
+    right: 24px;
+    bottom: 24px; /* Desktop nav is top: 18px, so bottom-right is completely clear */
+  }
+}
+
+.ask-fab {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 248, 242, 0.28);
+  background: var(--gradient-cta);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 36px -10px rgba(255, 46, 147, 0.52);
+  transition:
+    transform 0.2s var(--ease-out),
+    box-shadow 0.2s var(--ease-out);
+}
+
+.ask-fab:hover {
+  transform: translateY(-2px);
+}
+
+.ask-fab-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(255, 210, 63, 0.28);
+  animation: askPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes askPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 0.78;
+  }
+}
+
+.ask-panel {
+  pointer-events: auto;
+  position: fixed;
+  right: 12px;
+  left: 12px;
+  bottom: 134px; /* Above both the Ask Amir FAB and mobile bottom nav */
+  max-height: calc(100svh - 154px);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-card);
+  background: var(--bg-elevated);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+@media (min-width: 520px) {
+  .ask-panel {
+    left: auto;
+    width: min(410px, calc(100vw - 28px));
+  }
+}
+
+@media (min-width: 960px) {
+  .ask-panel {
+    right: 24px;
+    bottom: 84px;
+    width: min(420px, calc(100vw - 48px));
+    max-height: min(560px, calc(100svh - 168px)); /* Keeps clear of top desktop nav */
+  }
+}
+
+.ask-panel[hidden] {
+  display: none;
+}
+
+.ask-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  background: #14112b;
+  color: #fff8f2;
+  border-bottom: 1px solid rgba(255, 248, 242, 0.14);
+}
+
+.ask-panel-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.ask-panel-sub {
+  margin: 3px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 248, 242, 0.78);
+}
+
+.ask-close-btn {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 248, 242, 0.24);
+  background: rgba(255, 248, 242, 0.1);
+  color: #fff8f2;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ask-close-btn:hover {
+  background: rgba(255, 248, 242, 0.22);
+}
+
+.ask-messages {
+  flex: 1;
+  min-height: 180px;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ask-msg {
+  max-width: 90%;
+  padding: 11px 14px;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ask-msg p {
+  margin: 0;
+}
+
+.ask-msg--bot {
+  align-self: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  border-bottom-left-radius: 6px;
+}
+
+.ask-msg--user {
+  align-self: flex-end;
+  background: var(--gradient-cta);
+  color: #ffffff;
+  border-bottom-right-radius: 6px;
+}
+
+.ask-followup-wrap {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 6px;
+}
+
+.ask-followup-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.ask-followup-row,
+.ask-fallback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.ask-action-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-cta);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ask-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  max-height: 112px;
+  overflow-y: auto;
+}
+
+.ask-chip {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 6px 11px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-align: left;
+  overflow-wrap: anywhere;
+  transition:
+    border-color 0.16s ease,
+    transform 0.16s var(--ease-out);
+}
+
+.ask-chip:hover {
+  border-color: var(--magenta);
+  transform: translateY(-1px);
+}
+
+.ask-chip--followup {
+  font-size: 0.74rem;
+}
+
+.ask-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.ask-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 42px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.ask-input:focus {
+  outline: none;
+  border-color: var(--magenta);
+}
+
+.ask-send-btn {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--gradient-cta);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+

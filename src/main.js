@@ -861,6 +861,67 @@ function renderEducation() {
   `;
 }
 
+function renderJobFit() {
+  const { jobFit } = PORTFOLIO_CONTENT;
+  const container = document.getElementById("job-fit-container");
+  if (!container || !jobFit) return;
+
+  container.innerHTML = `
+    <header class="section-header" data-reveal>
+      <div>
+        <div class="section-eyebrow">
+          <span class="section-eyebrow-line" aria-hidden="true"></span>
+          <span>${escapeHtml(jobFit.eyebrow)}</span>
+        </div>
+        <h2 class="section-title" id="job-fit-heading">${escapeHtml(
+          jobFit.heading
+        )}</h2>
+      </div>
+      <span class="section-index-outline" aria-hidden="true">08</span>
+    </header>
+
+    <article class="glass-card job-fit-card" data-reveal>
+      <p class="job-fit-subtitle">${escapeHtml(jobFit.subtitle)}</p>
+
+      <div class="job-fit-samples" aria-label="Example job descriptions">
+        ${(jobFit.samples || [])
+          .map(
+            (sample, idx) =>
+              `<button type="button" class="ask-chip js-job-sample" data-sample-index="${idx}">${escapeHtml(
+                sample.label
+              )}</button>`
+          )
+          .join("")}
+      </div>
+
+      <form id="job-fit-form" class="job-fit-form">
+        <label class="sr-only" for="job-fit-input">Paste a job description</label>
+        <textarea
+          id="job-fit-input"
+          class="job-fit-textarea"
+          rows="5"
+          placeholder="${escapeHtml(jobFit.placeholder)}"
+        ></textarea>
+        <div class="job-fit-actions">
+          <button type="submit" class="btn btn-primary magnetic">${escapeHtml(
+            jobFit.analyzeLabel
+          )}</button>
+          <button type="button" id="job-fit-clear" class="btn btn-outline">${escapeHtml(
+            jobFit.clearLabel
+          )}</button>
+        </div>
+      </form>
+
+      <div
+        id="job-fit-results"
+        class="job-fit-results"
+        aria-live="polite"
+        hidden
+      ></div>
+    </article>
+  `;
+}
+
 function renderContact() {
   const { contact } = PORTFOLIO_CONTENT;
   const container = document.getElementById("contact-container");
@@ -961,6 +1022,12 @@ function renderContact() {
             placeholder="${escapeHtml(contact.form.messagePlaceholder)}"
           ></textarea>
         </div>
+        <div
+          id="smart-contact-insight"
+          class="smart-contact-insight"
+          aria-live="polite"
+          hidden
+        ></div>
         <div>
           <button type="submit" class="btn btn-primary magnetic">
             ${escapeHtml(contact.form.submitLabel)}
@@ -1781,6 +1848,91 @@ function initMotion() {
   }
 }
 
+function renderAskAmirTrigger() {
+  const root = document.getElementById("ask-amir-root");
+  if (!root) return;
+  const label = PORTFOLIO_CONTENT.assistant?.title || "Ask Amir";
+
+  root.innerHTML = `
+    <button
+      type="button"
+      id="ask-amir-fab"
+      class="ask-fab"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-controls="ask-amir-panel"
+    >
+      <span class="ask-fab-dot" aria-hidden="true"></span>
+      <span>${escapeHtml(label)}</span>
+    </button>
+  `;
+}
+
+function initLazySmartTools() {
+  let smartToolsPromise = null;
+  const loadSmartTools = () => {
+    if (!smartToolsPromise) {
+      smartToolsPromise = import("./smart-tools.js");
+    }
+    return smartToolsPromise;
+  };
+
+  const fab = document.getElementById("ask-amir-fab");
+  if (fab) {
+    let assistantOpened = false;
+    const bootAssistant = async (openImmediately) => {
+      const mod = await loadSmartTools();
+      mod.initAskAmir(PORTFOLIO_CONTENT, {
+        openImmediately: openImmediately && !assistantOpened
+      });
+      if (openImmediately) assistantOpened = true;
+    };
+
+    fab.addEventListener("pointerenter", () => loadSmartTools(), { once: true });
+    fab.addEventListener("focus", () => loadSmartTools(), { once: true });
+    fab.addEventListener(
+      "click",
+      () => {
+        if (!document.getElementById("ask-amir-panel")) {
+          bootAssistant(true);
+        }
+      },
+      { once: true }
+    );
+  }
+
+  const jobFitSection = document.getElementById("job-fit");
+  const contactSection = document.getElementById("contact");
+
+  const bootSections = async () => {
+    const mod = await loadSmartTools();
+    mod.initJobFitChecker(PORTFOLIO_CONTENT);
+    mod.initSmartContactForm(PORTFOLIO_CONTENT);
+  };
+
+  if (jobFitSection || contactSection) {
+    if ("IntersectionObserver" in window) {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            obs.disconnect();
+            bootSections();
+          }
+        },
+        { rootMargin: "260px 0px" }
+      );
+      if (jobFitSection) obs.observe(jobFitSection);
+      if (contactSection) obs.observe(contactSection);
+    } else {
+      bootSections();
+    }
+
+    jobFitSection?.addEventListener("focusin", bootSections, { once: true });
+    jobFitSection?.addEventListener("click", bootSections, { once: true });
+    contactSection?.addEventListener("focusin", bootSections, { once: true });
+  }
+}
+
 function bootstrap() {
   renderNavigation();
   renderHero();
@@ -1792,8 +1944,10 @@ function bootstrap() {
   renderVolunteering();
   renderSkills();
   renderEducation();
+  renderJobFit();
   renderContact();
   renderFooter();
+  renderAskAmirTrigger();
 
   wireImageStates();
   initLoader();
@@ -1806,6 +1960,7 @@ function bootstrap() {
   initCustomCursor();
   initDesktopMicroInteractions();
   initMotion();
+  initLazySmartTools();
 }
 
 if (document.readyState === "loading") {

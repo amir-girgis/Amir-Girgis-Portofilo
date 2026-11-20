@@ -20,12 +20,13 @@ A vibrant, mobile-first personal portfolio website built with plain HTML, CSS, a
 │       ├── sakan/                    # SAKAN concept branding & social campaign visuals
 │       └── gef-2026/                 # Global Entrepreneurship Festival 2026 & Volunteer Certificate
 └── src/
-    ├── content.js                    # Single source of truth for ALL text & media
+    ├── content.js                    # Single source of truth for ALL text, media, Q&A & tool configs
+    ├── smart-tools.js                # Lazy-loaded client-side tools (Ask Amir, Job Fit Checker, Smart Contact)
     ├── styles.css                    # "Sunset Pop" design system (light default + dark toggle)
     └── main.js                       # Renderer, expandable modals, swipe/keyboard lightbox, Cairo clock, GSAP
 ```
 
-## Optional Fields in `src/content.js`
+## Optional Fields & Smart Tools Config in `src/content.js`
 
 Configure `EDITABLE_PLACEHOLDERS` at the top of `src/content.js` (empty strings `""` are hidden automatically in the UI):
 - `TEAM_SIZE` (currently `"8"`)
@@ -34,6 +35,8 @@ Configure `EDITABLE_PLACEHOLDERS` at the top of `src/content.js` (empty strings 
 - `INNOVET_EVENT_DAY` (optional event-day notes)
 - `TECHSKILLS_CHALLENGE` (optional challenge details)
 - `GEF_COUNTS` (optional investor/project counts)
+
+All "Ask Amir" Q&A entries, English/Arabic synonyms, Job Fit Checker skill/gap catalogs, and Smart Contact classification keywords live under `PORTFOLIO_CONTENT.assistant`, `PORTFOLIO_CONTENT.jobFit`, and `PORTFOLIO_CONTENT.smartContact` in `src/content.js`. Everything runs 100% locally in the browser with no external APIs or stored data.
 
 ## Local Run
 
